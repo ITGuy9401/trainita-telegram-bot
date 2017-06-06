@@ -1,0 +1,23 @@
+{
+  "name": "trainita-telegram-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ITGuy9401/trainita-telegram-bot.git"
+  },
+  "author": "Arcangelo Vicedomini",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ITGuy9401/trainita-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/ITGuy9401/trainita-telegram-bot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.27.1",
+    "telegraf": "^3.7.3"
+  }
+}
