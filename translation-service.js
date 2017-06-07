@@ -1,4 +1,4 @@
-const {mapping} = require('.\database');
+const {mapping} = require('./database');
 
 /**
  *

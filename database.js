@@ -93,6 +93,16 @@ mapping.Resource = connection.define('RESOURCE', {
     }
 });
 
+mapping.Language.hasMany(mapping.Resource, {
+    as: 'resources',
+    foreignKey: 'ID_LANGUAGE'
+});
+
+mapping.Resource.belongsTo(mapping.Language, {
+    as: 'language',
+    foreignKey: 'ID'
+});
+
 connection.sync();
 
 module.exports = {
