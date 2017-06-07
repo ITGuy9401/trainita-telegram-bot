@@ -31,11 +31,52 @@ connection.authenticate().complete(function (err) {
     }
 });
 
-var mapping = {};
+let mapping = {};
+
+mapping.Language = connection.define('LANGUAGE', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    languageCode: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        field: 'LANGUAGE_CODE'
+    },
+    engName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        field: 'ENG_NAME'
+    },
+    name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
+});
+
+mapping.ResourceBundle = connection.define('RESOURCE_BUNDLE', {
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    applicationCode: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        field: 'APPLICATION_CODE'
+    }
+});
+
+mapping.Resource = connection.define('RESOURCE', {
+
+});
 
 connection.sync();
 
 module.exports = {
-    "mapping": mapping,
-    "connection": connection
+    'mapping': mapping,
+    'connection': connection
 };
