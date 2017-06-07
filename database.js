@@ -67,11 +67,30 @@ mapping.ResourceBundle = connection.define('RESOURCE_BUNDLE', {
         allowNull: false,
         unique: true,
         field: 'APPLICATION_CODE'
+    },
+    applicationVersion: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true,
+        field: 'APPLICATION_VERSION'
     }
 });
 
 mapping.Resource = connection.define('RESOURCE', {
-
+    id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    key: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+    },
+    value: {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
 });
 
 connection.sync();
