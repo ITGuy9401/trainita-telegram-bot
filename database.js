@@ -4,12 +4,12 @@ const Sequelize = require('sequelize');
 const Config = require('./config.js');
 
 var connection = new Sequelize(Config.get("JAWSDB_URL"), {
-    dialect: Config.get('JAWSDB_DIALECT'),
+    dialect: Config.get('DB_DIALECT'),
 
     pool: {
-        max: Config.get('JAWSDB_POOL_MAX'),
-        min: Config.get('JAWSDB_POOL_MIN'),
-        idle: Config.get('JAWSDB_POOL_IDLE')
+        max: Config.get('DB_POOL_MAX'),
+        min: Config.get('DB_POOL_MIN'),
+        idle: Config.get('DB_POOL_IDLE')
     },
 
     define: {

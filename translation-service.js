@@ -1,15 +1,18 @@
 const {mapping} = require('./database');
+const resolver = require('javascript-javastyle-i18n');
 
 /**
  *
  * resolves a key with given arguments in the selected language
  *
- * @param language ISO (2 char) language code
- * @param key key to be resolved
- * @param args arguments to be resolved in key
+ * @param language {string} ISO (2 char) language code
+ * @param key {string} key to be resolved
+ * @param args {Array} arguments to be resolved in key
  */
 function resolveKey(language, key, args) {
+	let message = ""; //FIXME resolve key
 
+	return resolver(message, args);
 }
 
 /**
@@ -23,8 +26,8 @@ function resolveKey(language, key, args) {
  *     }
  * </code>
  *
- * @param language ISO (2 char) language code
- * @param bundle (OPTIONAL) bundle code for filtering
+ * @param language {string} ISO (2 char) language code
+ * @param bundle {string} (OPTIONAL) bundle code for filtering
  */
 function getAllKeys(language, bundle) {
 
