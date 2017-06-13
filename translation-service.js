@@ -12,7 +12,8 @@ const resolver = require('javascript-javastyle-i18n');
 function resolveKey(language, key, args) {
 	let message = ""; //FIXME resolve key
 
-	return resolver(message, args);
+	mapping.Resource.find();
+	resolver(message, args);
 }
 
 /**
@@ -30,10 +31,28 @@ function resolveKey(language, key, args) {
  * @param bundle {string} (OPTIONAL) bundle code for filtering
  */
 function getAllKeys(language, bundle) {
+	return new Promise((resolve, reject) => {
+		let where = {
+			language: {
+				languageCode: language.toUpperCase();
+	}
+	};
+		if (bundle) {
+			where.bundle = {
+				applicationCode: bundle
+			}
+		}
 
+		return mapping.Resource.findAll({
+			where: where,
+			order: [['key', 'DESC']]
+		}).then(() => {
+			
+		});
+	});
 }
 
 module.exports = {
-    'resolveKey': resolveKey,
-    'getAllKeys': getAllKeys
+	'resolveKey': resolveKey,
+	'getAllKeys': getAllKeys
 };

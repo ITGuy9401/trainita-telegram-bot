@@ -94,13 +94,23 @@ mapping.Resource = connection.define('RESOURCE', {
 });
 
 mapping.Language.hasMany(mapping.Resource, {
-    as: 'resources',
-    foreignKey: 'ID_LANGUAGE'
+	as: 'resources',
+	foreignKey: 'ID_LANGUAGE'
 });
 
 mapping.Resource.belongsTo(mapping.Language, {
-    as: 'language',
-    foreignKey: 'ID'
+	as: 'language',
+	foreignKey: 'ID'
+});
+
+mapping.ResourceBundle.hasMany(mapping.Resource, {
+	as: 'resources',
+	foreignKey: 'ID_BUNDLE'
+});
+
+mapping.Resource.belongsTo(mapping.ResourceBundle, {
+	as: 'bundle',
+	foreignKey: 'ID'
 });
 
 connection.sync();
